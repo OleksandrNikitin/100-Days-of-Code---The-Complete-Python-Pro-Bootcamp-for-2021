@@ -1,7 +1,9 @@
 import json
+import secrets
 import tkinter as tk
+from random import shuffle
 from tkinter import messagebox
-from random import randint, shuffle, choice
+
 from pyperclip import copy
 
 JSON_FILE = "data.json"
@@ -34,9 +36,9 @@ def generate_password():
     numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
 
-    password_list = [choice(letters) for _ in range(randint(8, 10))] + \
-                    [choice(symbols) for _ in range(randint(2, 4))] + \
-                    [choice(numbers) for _ in range(randint(2, 4))]
+    password_list = [secrets.choice(letters) for _ in range(secrets.choice(range(8, 10)))] + \
+                    [secrets.choice(symbols) for _ in range(secrets.choice(range(2, 4)))] + \
+                    [secrets.choice(numbers) for _ in range(secrets.choice(range(2, 4)))]
 
     shuffle(password_list)
     password = "".join(password_list)

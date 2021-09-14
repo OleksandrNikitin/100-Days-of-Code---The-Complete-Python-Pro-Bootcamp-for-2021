@@ -1,4 +1,4 @@
-import random
+import secrets
 
 rock = '''
     _______
@@ -28,7 +28,7 @@ scissors = '''
 '''
 
 options = [rock, paper, scissors]
-computer_choice = random.choice(options)
+computer_choice = secrets.choice(options)
 user_choice = int(input("What do you choose, Type 0 for Rock, 1 for Paper or 2 for Scissors:\n"))
 
 print(f"You chose:\n{options[user_choice]}\n")

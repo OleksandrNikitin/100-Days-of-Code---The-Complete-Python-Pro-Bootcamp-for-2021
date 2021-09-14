@@ -1,4 +1,4 @@
-import random
+import secrets
 import turtle as turtle_module
 
 color_list = [
@@ -20,7 +20,7 @@ tim.setheading(0)
 number_of_dots = 100
 
 for dot_count in range(1, number_of_dots + 1):
-    tim.dot(20, random.choice(color_list))
+    tim.dot(20, secrets.choice(color_list))
     tim.forward(50)
 
     if dot_count % 10 == 0:

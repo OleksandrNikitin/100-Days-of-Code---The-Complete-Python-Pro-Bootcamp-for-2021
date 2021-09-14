@@ -1,5 +1,5 @@
 import datetime
-import random
+import secrets
 import smtplib
 
 import pandas
@@ -25,7 +25,7 @@ with open("letter_templates/letter_3.txt") as f:
 letter_templates = [letter_1, letter_2, letter_3]
 
 for row in formatted_birthdays_data:
-    random_letter = random.choice(letter_templates)
+    random_letter = secrets.choice(letter_templates)
     personalized_letter = random_letter.replace('[NAME]', row['name'])
     if today_month == row['month'] and today_day == row['day']:
         with smtplib.SMTP('smtp.gmail.com') as connect:

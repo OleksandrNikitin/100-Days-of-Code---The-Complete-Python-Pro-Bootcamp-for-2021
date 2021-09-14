@@ -1,4 +1,4 @@
-from random import randint
+import secrets
 
 
 # Describe Problem
@@ -11,7 +11,7 @@ def my_function():
 my_function()
 
 dice_images = ["❶", "❷", "❸", "❹", "❺", "❻"]
-dice_number = randint(0, 5)
+dice_number = secrets.choice(range(0, 6))
 print(dice_images[dice_number])
 
 # Play Computer

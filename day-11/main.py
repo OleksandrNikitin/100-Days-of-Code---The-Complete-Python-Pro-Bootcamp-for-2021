@@ -34,7 +34,7 @@
 # 11 is the Ace.
 # Hint 4: Create a deal_card() function that uses the List below to *return* a random card.
 # 11 is the Ace.
-import random
+import secrets
 
 from replit import clear
 
@@ -44,7 +44,7 @@ from art import logo
 def deal_card():
     """Returns a random card from the deck."""
     cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
-    card = random.choice(cards)
+    card = secrets.choice(cards)
     return card
 
 

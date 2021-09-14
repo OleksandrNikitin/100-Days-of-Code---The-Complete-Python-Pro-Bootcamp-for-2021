@@ -1,7 +1,7 @@
+import secrets
 from tkinter import PhotoImage, Button, Tk, Canvas
-import pandas
-from random import choice
 
+import pandas
 from pandas import DataFrame
 
 BACKGROUND_COLOR = "#B1DDC6"
@@ -27,7 +27,7 @@ def next_card():
     window.after_cancel(flip_timer)
     language = "French"
 
-    current_card = choice(to_learn)
+    current_card = secrets.choice(to_learn)
     current_word = current_card[language]
     canvas.itemconfig(canvas_background, image=front_image)
     canvas.itemconfig(card_title, text=language, fill="black")

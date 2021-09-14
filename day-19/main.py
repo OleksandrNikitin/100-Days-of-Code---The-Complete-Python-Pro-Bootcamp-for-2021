@@ -1,4 +1,4 @@
-import random
+import secrets
 from turtle import Turtle, Screen
 
 screen = Screen()
@@ -32,6 +32,6 @@ while is_race_on:
                 print(f"You've won! The winner is {winner_color}.")
             else:
                 print(f"You've lost! The winner is {winner_color}.")
-        turtle.forward(random.randint(0, 10))
+        turtle.forward(secrets.choice(range(0, 11)))
 
 screen.exitonclick()

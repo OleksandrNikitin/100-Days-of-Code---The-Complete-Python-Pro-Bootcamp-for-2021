@@ -1,4 +1,4 @@
-import random
+import secrets
 
 from replit import clear
 
@@ -8,7 +8,7 @@ from game_data import data
 
 def get_random_account():
     """Get data from random account"""
-    return random.choice(data)
+    return secrets.choice(data)
 
 
 def format_data(account):

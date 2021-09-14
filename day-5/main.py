@@ -1,5 +1,6 @@
 # Password Generator Project
 import random
+import secrets
 
 letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
            'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
@@ -16,13 +17,13 @@ nr_numbers = int(input(f"How many numbers would you like?\n"))
 password_list = []
 
 for char in range(1, nr_letters + 1):
-    password_list.append(random.choice(letters))
+    password_list.append(secrets.choice(letters))
 
 for char in range(1, nr_symbols + 1):
-    password_list += random.choice(symbols)
+    password_list += secrets.choice(symbols)
 
 for char in range(1, nr_numbers + 1):
-    password_list += random.choice(numbers)
+    password_list += secrets.choice(numbers)
 
 print(password_list)
 random.shuffle(password_list)

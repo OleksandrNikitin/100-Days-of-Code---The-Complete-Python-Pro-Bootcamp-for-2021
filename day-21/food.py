@@ -1,4 +1,4 @@
-import random
+import secrets
 from turtle import Turtle
 
 
@@ -13,6 +13,6 @@ class Food(Turtle):
         self.refresh()
 
     def refresh(self):
-        random_x = random.randint(-280, 280)
-        random_y = random.randint(-280, 280)
+        random_x = secrets.choice(range(-280, 281))
+        random_y = secrets.choice(range(-280, 281))
         self.goto(random_x, random_y)

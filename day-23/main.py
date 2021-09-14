@@ -1,4 +1,4 @@
-import random
+import secrets
 import time
 from turtle import Screen
 
@@ -22,7 +22,7 @@ while game_is_on:
     time.sleep(0.1)
     screen.update()
 
-    if random.randint(1, 6) == 1:
+    if secrets.choice(range(1, 6)) == 1:
         car_manager.create_car()
     car_manager.move_cars()
 
