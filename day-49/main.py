@@ -10,8 +10,10 @@ LINKEDIN_PHONE_NUMBER = os.environ.get("LINKEDIN_PHONE_NUMBER")
 
 chrome_driver_path = "chromedriver"
 driver = webdriver.Chrome(chrome_driver_path)
-driver.get("https://www.linkedin.com/jobs/search/?f_LF=f_AL&geoId=102257491&keywords=marketing%20intern&location"
-           "=London%2C%20England%2C%20United%20Kingdom&redirect=false&position=1&pageNum=0")
+driver.get(
+    "https://www.linkedin.com/jobs/search/?f_LF=f_AL&geoId=102257491&keywords=marketing%20intern&location"
+    "=London%2C%20England%2C%20United%20Kingdom&redirect=false&position=1&pageNum=0"
+)
 
 time.sleep(2)
 sign_in_button = driver.find_element_by_link_text("Sign in")
@@ -47,7 +49,9 @@ for listing in all_listings:
             close_button.click()
 
             time.sleep(2)
-            discard_button = driver.find_elements_by_class_name("artdeco-modal__confirm-dialog-btn")[1]
+            discard_button = driver.find_elements_by_class_name(
+                "artdeco-modal__confirm-dialog-btn"
+            )[1]
             discard_button.click()
             print("Complex application, skipped.")
             continue

@@ -20,8 +20,10 @@ guessed_states = []
 
 while len(guessed_states) < 50:
 
-    answer_state = screen.textinput(title=f"{len(guessed_states)}/50 States Correct",
-                                    prompt="What's another state's name?").title()
+    answer_state = screen.textinput(
+        title=f"{len(guessed_states)}/50 States Correct",
+        prompt="What's another state's name?",
+    ).title()
 
     if answer_state in data.state.to_list() and answer_state not in guessed_states:
         state_data = data[data.state == answer_state]

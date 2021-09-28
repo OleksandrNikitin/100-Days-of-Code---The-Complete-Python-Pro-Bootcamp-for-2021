@@ -34,6 +34,6 @@ if will_rain:
     message = client.messages.create(
         body="Remember to bring an umbrella!",
         messaging_service_sid=TWILIO_MESSAGING_SERVICE_SID,
-        to=YOUR_PHONE_NUMBER
+        to=YOUR_PHONE_NUMBER,
     )
     print(message.status)

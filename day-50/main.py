@@ -2,7 +2,10 @@ import os
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-from selenium.common.exceptions import ElementClickInterceptedException, NoSuchElementException
+from selenium.common.exceptions import (
+    ElementClickInterceptedException,
+    NoSuchElementException,
+)
 from time import sleep
 
 FB_EMAIL = os.environ.get("FB_EMAIL")
@@ -15,11 +18,14 @@ driver.get("https://www.tinder.com")
 
 sleep(2)
 login_button = driver.find_element_by_xpath(
-    '//*[@id="content"]/div/div[1]/div/main/div[1]/div/div/header/div[1]/div[2]/div/button')
+    '//*[@id="content"]/div/div[1]/div/main/div[1]/div/div/header/div[1]/div[2]/div/button'
+)
 login_button.click()
 
 sleep(2)
-fb_login = driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div[1]/div/div[3]/span/div[2]/button')
+fb_login = driver.find_element_by_xpath(
+    '//*[@id="modal-manager"]/div/div/div[1]/div/div[3]/span/div[2]/button'
+)
 fb_login.click()
 
 sleep(2)
@@ -39,11 +45,17 @@ driver.switch_to.window(base_window)
 print(driver.title)
 
 sleep(5)
-allow_location_button = driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div/div/div[3]/button[1]')
+allow_location_button = driver.find_element_by_xpath(
+    '//*[@id="modal-manager"]/div/div/div/div/div[3]/button[1]'
+)
 allow_location_button.click()
-notifications_button = driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div/div/div[3]/button[2]')
+notifications_button = driver.find_element_by_xpath(
+    '//*[@id="modal-manager"]/div/div/div/div/div[3]/button[2]'
+)
 notifications_button.click()
-cookies = driver.find_element_by_xpath('//*[@id="content"]/div/div[2]/div/div/div[1]/button')
+cookies = driver.find_element_by_xpath(
+    '//*[@id="content"]/div/div[2]/div/div/div[1]/button'
+)
 cookies.click()
 
 for _ in range(100):
@@ -51,7 +63,8 @@ for _ in range(100):
     try:
         print("called")
         like_button = driver.find_element_by_xpath(
-            '//*[@id="content"]/div/div[1]/div/main/div[1]/div/div/div[1]/div/div[2]/div[4]/button')
+            '//*[@id="content"]/div/div[1]/div/main/div[1]/div/div/div[1]/div/div[2]/div[4]/button'
+        )
         like_button.click()
     except ElementClickInterceptedException:
         try:

@@ -1,4 +1,5 @@
-print('''
+print(
+    '''
 *******************************************************************************
           |                   |                  |                     |
  _________|________________.=""_;=.______________|_____________________|_______
@@ -19,7 +20,8 @@ ____/______/______/______/__"=._o--._   ;o|o;     _._;o;____/______/______/____
 ____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
 /______/______/______/______/______/______/______/______/______/______/_____ /
 *******************************************************************************
-''')
+'''
+)
 print("Welcome to Treasure Island.")
 print("Your mission is to find the treasure.")
 
@@ -33,7 +35,9 @@ else:
     if second_question != "wait":
         print("You have been attacked by a trout. Game Over")
     else:
-        third_question = input("Which door do you want to choose? Red, Blue or Yellow?\n")
+        third_question = input(
+            "Which door do you want to choose? Red, Blue or Yellow?\n"
+        )
         if third_question == "Blue":
             print("You have been eaten by beasts. Game Over")
         elif third_question == "Red":

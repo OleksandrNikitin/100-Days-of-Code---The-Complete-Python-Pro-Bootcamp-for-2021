@@ -8,17 +8,68 @@ from pyperclip import copy
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 def generate_password():
-    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
-               'v',
-               'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q',
-               'R',
-               'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-    numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-    symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+    letters = [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "h",
+        "i",
+        "j",
+        "k",
+        "l",
+        "m",
+        "n",
+        "o",
+        "p",
+        "q",
+        "r",
+        "s",
+        "t",
+        "u",
+        "v",
+        "w",
+        "x",
+        "y",
+        "z",
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L",
+        "M",
+        "N",
+        "O",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "U",
+        "V",
+        "W",
+        "X",
+        "Y",
+        "Z",
+    ]
+    numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    symbols = ["!", "#", "$", "%", "&", "(", ")", "*", "+"]
 
-    password_list = [secrets.choice(letters) for _ in range(secrets.choice(range(8, 11)))] + \
-                    [secrets.choice(symbols) for _ in range(secrets.choice(range(2, 4)))] + \
-                    [secrets.choice(numbers) for _ in range(secrets.choice(range(2, 4)))]
+    password_list = (
+        [secrets.choice(letters) for _ in range(secrets.choice(range(8, 11)))]
+        + [secrets.choice(symbols) for _ in range(secrets.choice(range(2, 4)))]
+        + [secrets.choice(numbers) for _ in range(secrets.choice(range(2, 4)))]
+    )
 
     shuffle(password_list)
     password = "".join(password_list)
@@ -37,13 +88,14 @@ def save_to_file():
     if website == "" or email == "" or password == "":
         messagebox.showerror(title="Oops", message="Please, fill all the fields!")
     else:
-        is_ok = messagebox.askokcancel(title="Save to a file?",
-                                       message=f"These are the details entered: \n"
-                                               f"Website: {website}\n"
-                                               f"Email: {email} \n"
-                                               f"Password: {password} \n"
-                                               f"Is it ok to save?"
-                                       )
+        is_ok = messagebox.askokcancel(
+            title="Save to a file?",
+            message=f"These are the details entered: \n"
+            f"Website: {website}\n"
+            f"Email: {email} \n"
+            f"Password: {password} \n"
+            f"Is it ok to save?",
+        )
         if is_ok:
             with open("data.txt", "a") as data_file:
                 data_file.write(f"{website} | {email} | {password}\n")
@@ -86,7 +138,9 @@ password_input.grid(column=1, row=3)
 add_button = tk.Button(text="Add", width=34, command=save_to_file)
 add_button.grid(column=1, row=4, columnspan=2)
 
-password_button = tk.Button(text="Generate Password", width=15, command=generate_password)
+password_button = tk.Button(
+    text="Generate Password", width=15, command=generate_password
+)
 password_button.grid(column=2, row=3)
 
 window.mainloop()

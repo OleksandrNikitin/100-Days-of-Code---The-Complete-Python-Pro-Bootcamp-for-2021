@@ -3,7 +3,9 @@ from data import MENU, resources
 
 def format_report(data):
     """Format input data and return its format view"""
-    return f"Water: {data['water']}ml\nMilk: {data['milk']}ml\nCoffee: {data['coffee']}g"
+    return (
+        f"Water: {data['water']}ml\nMilk: {data['milk']}ml\nCoffee: {data['coffee']}g"
+    )
 
 
 def check_resources(drink):
@@ -57,7 +59,9 @@ while restart_machine:
         restart_machine = False
     elif ask == "report":
         print(f"{format_report(resources)}\nMoney: ${money}")
-    elif ask in MENU and check_resources(ask) and check_transaction(process_coins(), ask):
+    elif (
+        ask in MENU and check_resources(ask) and check_transaction(process_coins(), ask)
+    ):
         money += MENU[ask]["cost"]
         print(f"Here is your {ask} ☕️. Enjoy!")
         make_coffee(ask)

@@ -29,7 +29,9 @@ exercise_body = {
     "age": AGE,
 }
 
-exercise_response = requests.post(url=EXERCISE_API_URL, json=exercise_body, headers=exercise_headers)
+exercise_response = requests.post(
+    url=EXERCISE_API_URL, json=exercise_body, headers=exercise_headers
+)
 exercise_response.raise_for_status()
 exercise_data = exercise_response.json()["exercises"]
 
@@ -47,5 +49,7 @@ sheety_body = {
     }
 }
 
-sheety_response = requests.post(url=SHEETY_API_URL, json=sheety_body, headers=sheety_headers)
+sheety_response = requests.post(
+    url=SHEETY_API_URL, json=sheety_body, headers=sheety_headers
+)
 sheety_response.raise_for_status()

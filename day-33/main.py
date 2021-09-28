@@ -18,8 +18,10 @@ def is_iss_overhead():
     iss_latitude = float(data["iss_position"]["latitude"])
     iss_longitude = float(data["iss_position"]["longitude"])
 
-    if iss_latitude - 5 <= MY_LATITUDE <= iss_latitude + 5 and \
-            iss_longitude - 5 <= MY_LONGITUDE <= iss_longitude + 5:
+    if (
+        iss_latitude - 5 <= MY_LATITUDE <= iss_latitude + 5
+        and iss_longitude - 5 <= MY_LONGITUDE <= iss_longitude + 5
+    ):
         return True
     else:
         return False
@@ -55,6 +57,6 @@ while True:
             connect.sendmail(
                 from_addr=MY_EMAIL,
                 to_addrs=MY_EMAIL,
-                msg="Subject:Look up to see an international space station!\n\nIndeed!"
+                msg="Subject:Look up to see an international space station!\n\nIndeed!",
             )
     time.sleep(60)

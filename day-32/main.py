@@ -26,12 +26,14 @@ letter_templates = [letter_1, letter_2, letter_3]
 
 for row in formatted_birthdays_data:
     random_letter = secrets.choice(letter_templates)
-    personalized_letter = random_letter.replace('[NAME]', row['name'])
-    if today_month == row['month'] and today_day == row['day']:
-        with smtplib.SMTP('smtp.gmail.com') as connect:
+    personalized_letter = random_letter.replace("[NAME]", row["name"])
+    if today_month == row["month"] and today_day == row["day"]:
+        with smtplib.SMTP("smtp.gmail.com") as connect:
             connect.ehlo()
             connect.starttls()
             connect.login(user=MY_EMAIL, password=MY_PASSWORD)
-            connect.sendmail(from_addr=MY_EMAIL,
-                             to_addrs=row['email'],
-                             msg=f'Subject:Happy Birthday!\n\n{personalized_letter}')
+            connect.sendmail(
+                from_addr=MY_EMAIL,
+                to_addrs=row["email"],
+                msg=f"Subject:Happy Birthday!\n\n{personalized_letter}",
+            )

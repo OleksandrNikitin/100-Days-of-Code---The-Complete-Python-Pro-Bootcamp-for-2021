@@ -30,7 +30,7 @@ def check_flights(origin_city_code, destination_city_code, from_time, to_time):
         "flight_type": "round",
         "one_for_city": 1,
         "max_stopovers": 0,
-        "curr": "GBP"
+        "curr": "GBP",
     }
 
     response = requests.get(
@@ -52,7 +52,7 @@ def check_flights(origin_city_code, destination_city_code, from_time, to_time):
         destination_city=data["route"][0]["cityTo"],
         destination_airport=data["route"][0]["flyTo"],
         out_date=data["route"][0]["local_departure"].split("T")[0],
-        return_date=data["route"][1]["local_departure"].split("T")[0]
+        return_date=data["route"][1]["local_departure"].split("T")[0],
     )
     print(f"{flight_data.destination_city}: £{flight_data.price}")
     return flight_data

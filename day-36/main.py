@@ -73,8 +73,9 @@ if abs(diff_percent) > 1:
 
     # Create a new list of the first 3 article's headline and description using list comprehension.
     formatted_articles = [
-        f"{STOCK_NAME}: {up_down}{diff_percent}%\nHeadline: {article['title']}. \nBrief: {article['description']}" for
-        article in three_articles]
+        f"{STOCK_NAME}: {up_down}{diff_percent}%\nHeadline: {article['title']}. \nBrief: {article['description']}"
+        for article in three_articles
+    ]
     print(formatted_articles)
     # Send each article as a separate message via Twilio.
     client = Client(TWILIO_SID, TWILIO_AUTH_TOKEN)
@@ -82,7 +83,5 @@ if abs(diff_percent) > 1:
     # Send each article as a separate message via Twilio.
     for article in formatted_articles:
         message = client.messages.create(
-            body=article,
-            from_=VIRTUAL_TWILIO_NUMBER,
-            to=VERIFIED_NUMBER
+            body=article, from_=VIRTUAL_TWILIO_NUMBER, to=VERIFIED_NUMBER
         )

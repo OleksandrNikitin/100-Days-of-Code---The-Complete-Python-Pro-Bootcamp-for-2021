@@ -8,5 +8,7 @@ with open("./Input/Names/invited_names.txt", mode="r") as names_file:
 
 for name in names:
     stripped_name = name.rstrip()
-    with open(f"./Output/ReadyToSend/letter_for_{stripped_name}.txt", mode="w") as completed_letter:
+    with open(
+        f"./Output/ReadyToSend/letter_for_{stripped_name}.txt", mode="w"
+    ) as completed_letter:
         completed_letter.write(template_letter.replace(PLACEHOLDER, stripped_name))

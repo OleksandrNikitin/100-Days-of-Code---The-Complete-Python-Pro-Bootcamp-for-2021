@@ -5,7 +5,6 @@ THEME_COLOR = "#375362"
 
 
 class QuizInterface:
-
     def __init__(self, quiz_brain: QuizBrain):
         self.quiz = quiz_brain
         self.window = Tk()
@@ -18,7 +17,7 @@ class QuizInterface:
             width=780,
             text="Some Question text",
             fill=THEME_COLOR,
-            font=("Arial", 12, "italic")
+            font=("Arial", 12, "italic"),
         )
         self.canvas.grid(column=0, row=1, columnspan=2, pady=50, padx=50)
 
@@ -28,8 +27,12 @@ class QuizInterface:
         true_image = PhotoImage(file="images/true.png")
         false_image = PhotoImage(file="images/false.png")
 
-        self.true_button = Button(image=true_image, highlightthickness=0, command=self.true_pressed)
-        self.false_button = Button(image=false_image, highlightthickness=0, command=self.false_pressed)
+        self.true_button = Button(
+            image=true_image, highlightthickness=0, command=self.true_pressed
+        )
+        self.false_button = Button(
+            image=false_image, highlightthickness=0, command=self.false_pressed
+        )
 
         self.true_button.grid(column=0, row=2)
         self.false_button.grid(column=1, row=2)
@@ -45,7 +48,9 @@ class QuizInterface:
             q_text = self.quiz.next_question()
             self.canvas.itemconfig(self.question_text, text=q_text)
         else:
-            self.canvas.itemconfig(self.question_text, text="You've reached the end of the quiz!")
+            self.canvas.itemconfig(
+                self.question_text, text="You've reached the end of the quiz!"
+            )
             self.true_button.config(state="disabled")
             self.false_button.config(state="disabled")
 

@@ -25,12 +25,10 @@ graph_config = {
     "name": "Cycling Graph",
     "unit": "Km",
     "type": "float",
-    "color": "ajisai"
+    "color": "ajisai",
 }
 
-headers = {
-    "X-USER-TOKEN": TOKEN
-}
+headers = {"X-USER-TOKEN": TOKEN}
 
 response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
 print(response.text)
@@ -48,17 +46,19 @@ pixel_data = {
 response = requests.post(url=pixel_creation_endpoint, json=pixel_data, headers=headers)
 print(response.text)
 
-update_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{today.strftime('%Y%m%d')}"
+update_endpoint = (
+    f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{today.strftime('%Y%m%d')}"
+)
 
-new_pixel_data = {
-    "quantity": "4.5"
-}
+new_pixel_data = {"quantity": "4.5"}
 
 # PUT
 response = requests.put(url=update_endpoint, json=new_pixel_data, headers=headers)
 print(response.text)
 
-delete_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{today.strftime('%Y%m%d')}"
+delete_endpoint = (
+    f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{today.strftime('%Y%m%d')}"
+)
 
 # DELETE
 response = requests.delete(url=delete_endpoint, headers=headers)

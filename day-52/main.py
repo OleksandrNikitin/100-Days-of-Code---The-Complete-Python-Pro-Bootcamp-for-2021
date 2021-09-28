@@ -12,7 +12,6 @@ PASSWORD = os.environ.get("PASSWORD")
 
 
 class InstaFollower:
-
     def __init__(self, path):
         self.driver = webdriver.Chrome(executable_path=path)
 
@@ -35,13 +34,16 @@ class InstaFollower:
 
         time.sleep(2)
         followers = self.driver.find_element_by_xpath(
-            '//*[@id="react-root"]/section/main/div/header/section/ul/li[2]/a')
+            '//*[@id="react-root"]/section/main/div/header/section/ul/li[2]/a'
+        )
         followers.click()
 
         time.sleep(2)
-        modal = self.driver.find_element_by_xpath('/html/body/div[4]/div/div/div[2]')
+        modal = self.driver.find_element_by_xpath("/html/body/div[4]/div/div/div[2]")
         for _ in range(10):
-            self.driver.execute_script("arguments[0].scrollTop = arguments[0].scrollHeight", modal)
+            self.driver.execute_script(
+                "arguments[0].scrollTop = arguments[0].scrollHeight", modal
+            )
             time.sleep(2)
 
     def follow(self):
@@ -51,7 +53,9 @@ class InstaFollower:
                 button.click()
                 time.sleep(1)
             except ElementClickInterceptedException:
-                cancel_button = self.driver.find_element_by_xpath('/html/body/div[5]/div/div/div/div[3]/button[2]')
+                cancel_button = self.driver.find_element_by_xpath(
+                    "/html/body/div[5]/div/div/div/div[3]/button[2]"
+                )
                 cancel_button.click()
 
 

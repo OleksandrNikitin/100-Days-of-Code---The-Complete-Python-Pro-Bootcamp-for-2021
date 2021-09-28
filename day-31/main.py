@@ -69,7 +69,9 @@ card_word = canvas.create_text(400, 263, text="Word", font=("Ariel", 30, "bold")
 
 canvas.grid(column=0, row=0, columnspan=2)
 right_image = PhotoImage(file="images/right.png")
-right_button = Button(image=right_image, highlightthickness=0, command=save_words_to_learn)
+right_button = Button(
+    image=right_image, highlightthickness=0, command=save_words_to_learn
+)
 
 right_button.grid(column=1, row=1)
 wrong_image = PhotoImage(file="images/wrong.png")

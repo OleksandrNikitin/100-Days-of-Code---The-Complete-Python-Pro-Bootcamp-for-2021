@@ -19,26 +19,81 @@ def find_password():
         messagebox.showerror(title="Error", message="No Data File Found")
     else:
         if website in data:
-            email = data[website]['email']
-            password = data[website]['password']
-            messagebox.showinfo(title=f"Info for {website}",
-                                message=f"Email: {email}\nPassword: {password}")
+            email = data[website]["email"]
+            password = data[website]["password"]
+            messagebox.showinfo(
+                title=f"Info for {website}",
+                message=f"Email: {email}\nPassword: {password}",
+            )
         else:
-            messagebox.showinfo(title="Info", message=f"No details for the {website} exist")
+            messagebox.showinfo(
+                title="Info", message=f"No details for the {website} exist"
+            )
 
 
 def generate_password():
-    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
-               'v',
-               'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q',
-               'R',
-               'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-    numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-    symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+    letters = [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "h",
+        "i",
+        "j",
+        "k",
+        "l",
+        "m",
+        "n",
+        "o",
+        "p",
+        "q",
+        "r",
+        "s",
+        "t",
+        "u",
+        "v",
+        "w",
+        "x",
+        "y",
+        "z",
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L",
+        "M",
+        "N",
+        "O",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "U",
+        "V",
+        "W",
+        "X",
+        "Y",
+        "Z",
+    ]
+    numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    symbols = ["!", "#", "$", "%", "&", "(", ")", "*", "+"]
 
-    password_list = [secrets.choice(letters) for _ in range(secrets.choice(range(8, 10)))] + \
-                    [secrets.choice(symbols) for _ in range(secrets.choice(range(2, 4)))] + \
-                    [secrets.choice(numbers) for _ in range(secrets.choice(range(2, 4)))]
+    password_list = (
+        [secrets.choice(letters) for _ in range(secrets.choice(range(8, 10)))]
+        + [secrets.choice(symbols) for _ in range(secrets.choice(range(2, 4)))]
+        + [secrets.choice(numbers) for _ in range(secrets.choice(range(2, 4)))]
+    )
 
     shuffle(password_list)
     password = "".join(password_list)
@@ -114,7 +169,9 @@ password_input.grid(column=1, row=3)
 add_button = tk.Button(text="Add", width=34, command=save_to_file)
 add_button.grid(column=1, row=4, columnspan=2)
 
-password_button = tk.Button(text="Generate Password", width=15, command=generate_password)
+password_button = tk.Button(
+    text="Generate Password", width=15, command=generate_password
+)
 password_button.grid(column=2, row=3)
 
 search_button = tk.Button(text="Search", width=15, command=find_password)

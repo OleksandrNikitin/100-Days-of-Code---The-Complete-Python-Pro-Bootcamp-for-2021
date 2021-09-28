@@ -6,9 +6,11 @@ import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 
 # Scraping Billboard 100
-date = input("Which year do you want to travel to? Type the date in this format YYYY-MM-DD: ")
+date = input(
+    "Which year do you want to travel to? Type the date in this format YYYY-MM-DD: "
+)
 response = requests.get("https://www.billboard.com/charts/hot-100/" + date)
-soup = BeautifulSoup(response.text, 'html.parser')
+soup = BeautifulSoup(response.text, "html.parser")
 song_names_spans = soup.find_all("span", class_="chart-element__information__song")
 song_names = [song.getText() for song in song_names_spans]
 
@@ -20,7 +22,7 @@ sp = spotipy.Spotify(
         client_id=os.environ.get("SPOTIPY_CLIENT_ID"),
         client_secret=os.environ.get("SPOTIPY_CLIENT_SECRET"),
         show_dialog=True,
-        cache_path="token.txt"
+        cache_path="token.txt",
     )
 )
 user_id = sp.current_user()["id"]
@@ -39,7 +41,9 @@ for song in song_names:
         print(f"{song} doesn't exist in Spotify. Skipped.")
 
 # Creating a new private playlist in Spotify
-playlist = sp.user_playlist_create(user=user_id, name=f"{date} Billboard 100", public=False)
+playlist = sp.user_playlist_create(
+    user=user_id, name=f"{date} Billboard 100", public=False
+)
 print(playlist)
 
 # Adding songs found into the new playlist

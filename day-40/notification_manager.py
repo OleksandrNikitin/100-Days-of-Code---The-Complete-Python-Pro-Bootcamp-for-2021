@@ -11,7 +11,6 @@ MY_PASSWORD = ""
 
 
 class NotificationManager:
-
     def __init__(self):
         self.client = Client(TWILIO_SID, TWILIO_AUTH_TOKEN)
 
@@ -31,5 +30,7 @@ class NotificationManager:
                 connection.sendmail(
                     from_addr=MY_EMAIL,
                     to_addrs=email,
-                    msg=f"Subject:New Low Price Flight!\n\n{message}\n{google_flight_link}".encode('utf-8')
+                    msg=f"Subject:New Low Price Flight!\n\n{message}\n{google_flight_link}".encode(
+                        "utf-8"
+                    ),
                 )
